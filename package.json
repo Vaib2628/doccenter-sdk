@@ -1,0 +1,19 @@
+{
+  "name": "doccenter-sdk",
+  "version": "1.0.0",
+  "description": "Official JavaScript/Node.js SDK for Doccenter",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "doccenter",
+    "sdk",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.0"
+  }
+}

@@ -1,0 +1,1 @@
+module.exports = async (httpClient) => httpClient.get('/users/me').data.data;
