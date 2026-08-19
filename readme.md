@@ -1,6 +1,6 @@
 # 📄 Doccenter Node.js / JavaScript SDK
 
-[![npm version](https://img.shields.io/npm/v/doccenter-sdk.svg?style=flat-square)](https://www.npmjs.com/package/doccenter-sdk)
+[![npm version](https://img.shields.io/npm/v/@vaibhav-dev/doccenter-sdk.svg?style=flat-square)](https://www.npmjs.com/package/@vaibhav-dev/doccenter-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen.svg?style=flat-square)](https://nodejs.org)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/Vaib2628/doccenter-sdk)
@@ -51,13 +51,13 @@ The official client SDK for the **Doccenter Platform**. Provides seamless Single
 
 ```bash
 # Using npm
-npm install doccenter-sdk
+npm install @vaibhav-dev/doccenter-sdk
 
 # Using yarn
-yarn add doccenter-sdk
+yarn add @vaibhav-dev/doccenter-sdk
 
 # Using pnpm
-pnpm add doccenter-sdk
+pnpm add @vaibhav-dev/doccenter-sdk
 ```
 
 ---
@@ -66,7 +66,7 @@ pnpm add doccenter-sdk
 
 ### CommonJS (Node.js)
 ```javascript
-const Doccenter = require('doccenter-sdk');
+const Doccenter = require('@vaibhav-dev/doccenter-sdk');
 
 const client = new Doccenter({
     apiKey: 'your_doccenter_api_key',
@@ -76,7 +76,7 @@ const client = new Doccenter({
 
 ### ES Modules / TypeScript
 ```javascript
-import Doccenter, { DoccenterError } from 'doccenter-sdk';
+import Doccenter, { DoccenterError } from '@vaibhav-dev/doccenter-sdk';
 
 const client = new Doccenter({
     apiKey: process.env.DOCCENTER_API_KEY,
