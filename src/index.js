@@ -1,14 +1,14 @@
 const createHttpClient = require('./HttpClient');
 const createAuthModule = require('./auth');
-const DoccenterError = require('./errors/DoccenterError');
+const createDocumentModule = require('./document');
+const { DoccenterError } = require('./errors');
 
 class Doccenter {
-    /**
-     * @param {string | { apiKey: string, baseURL?: string }} config
-     */
     constructor(config) {
         this.httpClient = createHttpClient(config);
         this.auth = createAuthModule(this.httpClient);
+        this.documents = createDocumentModule(this.httpClient);
+        this.document = this.documents;
     }
 }
 
