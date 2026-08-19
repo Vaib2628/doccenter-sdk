@@ -9,13 +9,22 @@ module.exports = async function uploadDocument(httpClient, fileContent, fileData
         throw new DoccenterError('fileName is required in fileData', 400);
     }
 
-    const presignedRes = await httpClient.post('/docs/presigned-upload-url', fileData);
+    const contentType = fileData.contentType || fileData.mimeType || fileData.fileType || 'application/octet-stream';
+    const size = fileData.size ?? fileData.fileSize ?? (Buffer.isBuffer(fileContent) ? fileContent.length : 0);
+
+    const payload = {
+        fileName: fileData.fileName,
+        contentType,
+        size,
+        folderId: fileData.folderId || null
+    };
+
+    const presignedRes = await httpClient.post('/docs/presigned-upload-url', payload);
     const { documentId, url, key } = presignedRes.data.data;
 
     try {
         const headers = options.headers || {};
-        const contentType = fileData.fileType || fileData.mimeType || options.contentType;
-        if (contentType && !headers['Content-Type']) {
+        if (!headers['Content-Type']) {
             headers['Content-Type'] = contentType;
         }
 
@@ -24,6 +33,10 @@ module.exports = async function uploadDocument(httpClient, fileContent, fileData
             onUploadProgress: options.onUploadProgress
         });
     } catch (err) {
+        try {
+            await httpClient.post(`/docs/${documentId}/failed`);
+        } catch (_) {}
+
         throw new DoccenterError(
             err.message || 'Failed to upload document content to storage',
             err.response?.status || 500,
