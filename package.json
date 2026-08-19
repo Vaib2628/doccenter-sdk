@@ -1,6 +1,6 @@
 {
   "name": "@vaibhav-dev/doccenter-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Official JavaScript/Node.js SDK for Doccenter",
   "main": "src/index.js",
   "files": [
